@@ -1,0 +1,148 @@
+@use 'variables' as v;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: v.$font-family-base;
+}
+
+.interface {
+  width: v.$screen-width;
+  height: v.$screen-height;
+  background-color: v.$color-bg;
+  color: v.$color-primary;
+  border: 4px solid v.$color-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  
+  &__header {
+    background-color: v.$color-primary;
+    color: v.$color-bg;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.header {
+  &__status, &__battery {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    text-align: center;
+    
+    span {
+      display: block;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+  }
+
+  &__battery-icon {
+    width: 40px;
+    height: 15px;
+    border: 2px solid v.$color-bg;
+    display: flex;
+    padding: 1px;
+    
+    div {
+      flex: 1;
+      background-color: v.$color-bg;
+      margin: 0 1px;
+    }
+  }
+}
+
+.viewport {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+  background: radial-gradient(circle, rgba(255,102,0,0.1) 0%, rgba(0,0,0,1) 70%);
+
+  &__window {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%; // Ovale vorm zoals in screenshot
+    border: 2px solid rgba(v.$color-primary, 0.3);
+    background-color: black;
+    box-shadow: 0 0 50px rgba(v.$color-primary, 0.2) inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__star {
+    width: 20px;
+    height: 20px;
+    background-color: v.$color-primary;
+    border-radius: 50%;
+    box-shadow: 0 0 20px v.$color-primary;
+  }
+
+  &__distance {
+    margin-top: 1rem;
+    color: v.$color-primary;
+    border-top: 1px solid v.$color-primary;
+    padding-top: 0.5rem;
+  }
+}
+
+.controls {
+  background-color: v.$color-primary;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+
+  &__button {
+    background-color: v.$color-dark-grey;
+    color: v.$color-primary;
+    border: none;
+    padding: 1rem 3rem;
+    font-family: v.$font-family-base;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 200px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: lighten(v.$color-dark-grey, 20%);
+      color: white;
+      box-shadow: 0 0 10px v.$color-dark-grey;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &--stop {
+    }
+  }
+}
